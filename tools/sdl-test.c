@@ -56,6 +56,13 @@ int main(int argc, char *argv[]) {
                 event.cbutton.state ? "PRESSED" : "RELEASED");
         }
 
+        if (event.type == SDL_CONTROLLERAXISMOTION) {
+            printf("Mapped axis: %s | %d\n",
+                SDL_GameControllerGetStringForAxis(
+                    event.caxis.axis),
+                event.caxis.value);
+        }
+
         if (event.type == SDL_JOYBUTTONDOWN ||
             event.type == SDL_JOYBUTTONUP) {
             printf("Raw button: b%d | %s\n",
